@@ -15,6 +15,7 @@
   }
 
   .promo-1 {
+    container: promo-1 / inline-size;
     position: relative;
     background-color: var(--main-color);
     overflow-y: clip;
@@ -76,5 +77,23 @@
     block-size: 100%;
     object-fit: cover;
     opacity: 0.6;
+  }
+
+  @container promo-1 (inline-size <=768px) {
+
+    .promo-1 div {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "heading"
+        "photo"
+        "order-link"
+        "descr";
+    }
+
+    h1 {
+      font-size: var(--fluid-font-size-3);
+    }
+
+
   }
 }
