@@ -15,6 +15,7 @@
   }
 
   header,
+  article:first-of-type div,
   article:not(:first-of-type),
   footer {
     margin-inline: auto;
@@ -39,7 +40,16 @@
     cursor: pointer;
   }
 
-  h1, h2, h3, h4, h5, h6, p, ul, dialog, input {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  dialog,
+  input {
     margin: 0;
   }
 
@@ -52,7 +62,10 @@
     max-inline-size: 100%;
   }
 
-  input, button, textarea, select {
+  input,
+  button,
+  textarea,
+  select {
     font: inherit;
   }
 

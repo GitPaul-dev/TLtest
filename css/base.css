@@ -9,10 +9,13 @@
     --size-5: 64px;
     --size-6: 88px;
 
-    --color-0: hsl(0 0 100);
-    --color-1: hsl(47 87 50);
-    --color-3: hsl(0 0 0);
-    --main-color: hsl(295 30 35);
+    --color-0: oklch(100% 0 0);
+    --color-1: oklch(82.1% 0.165 89.94);
+    --color-3: oklch(0% 0 0);
+    --main-color: oklch(44.62% 0.104 324.41);
+
+    --gradient-1: linear-gradient(in oklch to left bottom, var(--main-color) -15%, var(--color-1));
+    --gradient-2: linear-gradient(in oklch to right top, var(--main-color) -15%, var(--color-1));
 
     --max-site-width: 160ch;
 

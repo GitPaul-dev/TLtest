@@ -10,10 +10,6 @@
     line-height: 1.5;
   }
 
-  article:not(:first-of-type) {
-    padding-inline: var(--website-padding-inline);
-  }
-
   .promo-1 {
     container: promo-1 / inline-size;
     position: relative;
@@ -33,7 +29,7 @@
       "photo order-link";
     gap: var(--size-2);
     padding-inline: var(--website-padding-inline);
-    padding-block: var(--size-2);
+    padding-block: var(--size-4);
 
     & h1 {
       grid-area: heading;
@@ -65,7 +61,6 @@
       grid-area: order-link;
       place-self: center;
       inline-size: clamp(100px, 30vi, 400px);
-      font-size: var(--fluid-font-size-2);
     }
 
   }
@@ -94,6 +89,66 @@
       font-size: var(--fluid-font-size-3);
     }
 
+    .promo-1 div a {
+      font-size: var(--fluid-font-size-1);
+    }
+  }
 
+  .composition {
+    padding-block: var(--size-5);
+    position: relative;
+    background-image: var(--gradient-1);
+
+    & .product-box {
+      position: absolute;
+      inset: 0;
+      display: block grid;
+      place-items: center;
+      margin: auto;
+      inline-size: fit-content;
+      block-size: fit-content;
+
+      & img {
+        margin-block-end: var(--size-3);
+        inline-size: clamp(150px, 20vi, 250px);
+      }
+
+      & a {
+        inline-size: clamp(100px, 20vi, 200px);
+      }
+    }
+
+    & ul {
+      display: block grid;
+      grid-template-columns: repeat(2, minmax(10vi, 400px));
+      justify-content: space-between;
+      gap: var(--size-6);
+      column-gap: 260px;
+    }
+
+    & li {
+      display: block flex;
+      align-items: center;
+      gap: var(--size-2);
+    }
+
+    & li:nth-child(odd) {
+      flex-direction: row-reverse;
+
+      & p {
+        text-align: end;
+      }
+    }
+
+    & .img-box {
+      flex-basis: 100%;
+      border: 2px solid var(--main-color);
+      border-radius: 50%;
+      background-image: var(--gradient-2);
+    }
+
+    & p {
+      font-size: var(--fluid-font-size-1);
+    }
   }
 }
