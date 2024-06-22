@@ -1,0 +1,28 @@
+@layer base {
+
+  :root {
+    --size-0: 4px;
+    --size-1: 8px;
+    --size-2: 16px;
+    --size-3: 28px;
+    --size-4: 44px;
+    --size-5: 64px;
+    --size-6: 88px;
+
+    --color-0: hsl(0 0 100);
+    --color-1: hsl(47 87 50);
+    --color-3: hsl(0 0 0);
+    --main-color: hsl(295 30 35);
+
+    --max-site-width: 160ch;
+
+    --line-height: calc(1em + 4px);
+
+    --fluid-font-size-1: clamp(1rem, 2vi, 1.5rem);
+    --fluid-font-size-2: clamp(1.2rem, 2vi, 2rem);
+    --fluid-font-size-3: clamp(2rem, 4vi, 3.5rem);
+    --fluid-font-size-4: clamp(2.5rem, 6vi, 5rem);
+
+    --border-radius: var(--size-2);
+  }
+}

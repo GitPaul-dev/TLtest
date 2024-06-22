@@ -1,0 +1,27 @@
+@layer default {
+
+  h1 {
+    font-size: var(--fluid-font-size-4);
+  }
+
+  h2 {
+    font-size: var(--fluid-font-size-2);
+  }
+
+  p,
+  blockquote {
+    font-size: var(--fluid-font-size-2);
+    color: var(--color-0)
+  }
+
+  a {
+    padding: var(--size-1);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-1);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-1);
+    background-color: var(--main-color);
+  }
+}

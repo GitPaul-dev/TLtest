@@ -1,0 +1,80 @@
+@layer style {
+
+  :root {
+    --website-padding-inline: var(--size-2);
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    font-size: 105%;
+    line-height: 1.5;
+  }
+
+  article:not(:first-of-type) {
+    padding-inline: var(--website-padding-inline);
+  }
+
+  .promo-1 {
+    position: relative;
+    background-color: var(--main-color);
+    overflow-y: clip;
+  }
+
+  .promo-1 div {
+    position: relative;
+    z-index: 10;
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "heading heading"
+      "photo descr"
+      "photo order-link";
+    gap: var(--size-2);
+    padding-inline: var(--website-padding-inline);
+    padding-block: var(--size-2);
+
+    & h1 {
+      grid-area: heading;
+      place-self: center;
+      color: var(--color-1);
+      text-shadow: 2px 2px 6px var(--color-3);
+    }
+
+    & img {
+      grid-area: photo;
+      place-self: center;
+      inline-size: clamp(200px, 30vi, 490px);
+    }
+
+    & ul {
+      grid-area: descr;
+      display: block flex;
+      flex-direction: column;
+      gap: var(--size-2);
+    }
+
+    li {
+      padding: var(--size-2);
+      border-radius: var(--border-radius);
+      background-color: oklch(from var(--main-color) l c h / .5);
+    }
+
+    & a {
+      grid-area: order-link;
+      place-self: center;
+      inline-size: clamp(100px, 30vi, 400px);
+      font-size: var(--fluid-font-size-2);
+    }
+
+  }
+
+  .promo-1 video {
+    position: absolute;
+    inset-block-start: 0;
+    inline-size: 100vi;
+    block-size: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+}
