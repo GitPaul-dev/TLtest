@@ -26,7 +26,7 @@
     grid-template-areas:
       "heading heading"
       "photo descr"
-      "photo order-link";
+      "photo promo-1-link";
     gap: var(--size-2);
     padding-inline: var(--website-padding-inline);
     padding-block: var(--size-4);
@@ -58,7 +58,7 @@
     }
 
     & a {
-      grid-area: order-link;
+      grid-area: promo-1-link;
       place-self: center;
       inline-size: clamp(100px, 30vi, 400px);
     }
@@ -81,7 +81,7 @@
       grid-template-areas:
         "heading"
         "photo"
-        "order-link"
+        "promo-1-link"
         "descr";
     }
 
@@ -233,6 +233,116 @@
     .swiper-button-next::after,
     .swiper-button-prev::after {
       font-weight: 700;
+    }
+  }
+
+  .promo-2 {
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "man spec"
+      "feature feature"
+      "promo-2-link promo-2-link";
+    column-gap: var(--size-2);
+    background-image: var(--gradient-1);
+
+    & :where(.spec, ul) {
+      border-radius: var(--border-radius);
+      background-color: oklch(from var(--main-color) l c h / .4);
+    }
+
+    & img {
+      grid-area: man;
+      place-self: center;
+    }
+
+    & .spec {
+      grid-area: spec;
+      display: block flex;
+      align-items: center;
+      margin-block: var(--size-2);
+      padding: var(--size-3);
+      font-weight: 500;
+    }
+
+    & ul {
+      grid-area: feature;
+      display: block grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      gap: var(--size-2);
+      margin-block-end: var(--size-2);
+    }
+
+    & li {
+      padding: var(--size-2);
+    }
+
+    & p {
+      text-align: center;
+    }
+
+    & a {
+      grid-area: promo-2-link;
+      justify-self: center;
+      inline-size: clamp(100px, 30vi, 400px);
+    }
+  }
+
+  @media (width <=768px) {
+
+    .promo-2 {
+      grid-template-areas:
+        "man feature"
+        "spec feature"
+        "promo-2-link promo-2-link";
+
+      & .spec {
+        margin-block-start: 0;
+      }
+
+      & ul {
+        grid-auto-flow: row;
+      }
+
+      & li {
+        place-self: center;
+      }
+    }
+  }
+
+  @media (width <=576px) {
+
+    .promo-2 {
+      grid-template-areas:
+        "man"
+        "spec"
+        "promo-2-link"
+        "feature";
+      grid-template-columns: 1fr;
+
+      & ul {
+        grid-auto-flow: column;
+        margin-block-end: 0;
+        border-inline: var(--size-1) solid transparent;
+        overflow-x: auto;
+        scroll-snap-type: inline mandatory;
+      }
+
+      & li {
+        inline-size: 70vi;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+      }
+
+      & img {
+        max-inline-size: 260px;
+      }
+
+      & a {
+        margin-block-end: var(--size-2);
+      }
     }
   }
 }
