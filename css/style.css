@@ -95,8 +95,8 @@
   }
 
   .composition {
-    padding-block: var(--size-5);
     position: relative;
+    padding-block: var(--size-5);
     background-image: var(--gradient-1);
 
     & .product-box {
@@ -141,7 +141,8 @@
     }
 
     & .img-box {
-      flex-basis: 100%;
+      flex-shrink: 0;
+      flex-basis: 40%;
       border: 2px solid var(--main-color);
       border-radius: 50%;
       background-image: var(--gradient-2);
@@ -149,6 +150,41 @@
 
     & p {
       font-size: var(--fluid-font-size-1);
+    }
+  }
+
+  @media (width <=768px) {
+
+    .composition {
+      display: block flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: var(--size-4);
+
+      & .product-box {
+        position: static;
+      }
+
+      & ul {
+        grid-template-columns: repeat(auto-fit, minmax(22vi, 100px));
+        justify-content: center;
+        gap: var(--size-2);
+        inline-size: 100%;
+      }
+
+      & :is(li, li:nth-child(odd)) {
+        flex-direction: column;
+
+        & p {
+          text-align: center;
+          text-wrap: balance;
+        }
+      }
+
+      & .img-box {
+        flex-basis: 0;
+        inline-size: max(20vi, 100px);
+      }
     }
   }
 }
