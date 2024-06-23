@@ -31,11 +31,10 @@
     padding-inline: var(--website-padding-inline);
     padding-block: var(--size-4);
 
-    & h1 {
+    & .main-title {
       grid-area: heading;
       place-self: center;
       color: var(--color-1);
-      text-shadow: 2px 2px 6px var(--color-3);
     }
 
     & img {
@@ -85,7 +84,7 @@
         "descr";
     }
 
-    h1 {
+    .main-title {
       font-size: var(--fluid-font-size-3);
     }
 
@@ -280,6 +279,7 @@
     }
 
     & p {
+      font-size: var(--fluid-font-size-1);
       text-align: center;
     }
 
@@ -343,6 +343,100 @@
       & a {
         margin-block-end: var(--size-2);
       }
+    }
+  }
+
+  footer {
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "name name"
+      "timer timer"
+      "form sale";
+    gap: var(--size-2);
+    place-items: center;
+    background-image: var(--gradient-3);
+
+    & .main-title {
+      grid-area: name;
+    }
+
+    & .timer {
+      grid-area: timer;
+    }
+
+    & .sale {
+      grid-area: sale;
+    }
+
+    & .price {
+      display: block flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--size-2);
+      font-weight: 700;
+
+      & span:first-of-type {
+        position: relative;
+      }
+
+      & span:first-of-type::after {
+        content: "";
+        position: absolute;
+        inset-inline-start: -10%;
+        inset-block: 0;
+        margin-block: auto;
+        block-size: 4px;
+        inline-size: 120%;
+        background-color: var(--main-color);
+      }
+
+      & span:last-of-type {
+        font-size: var(--fluid-font-size-3);
+      }
+    }
+
+    & form {
+      grid-area: form;
+      place-self: stretch;
+      display: block flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--size-3);
+      padding: var(--size-3);
+      border-radius: var(--border-radius);
+      background-color: oklch(from var(--main-color) l c h / .4);
+    }
+
+    & label {
+      --_input-padding: var(--size-2);
+      position: relative;
+    }
+
+    & label span {
+      position: absolute;
+      inset-block-start: var(--size-0);
+      inset-inline-end: var(--_input-padding);
+      display: none;
+      color: var(--main-color);
+    }
+
+    & input {
+      padding: var(--_input-padding);
+      border-radius: var(--border-radius);
+      font-size: var(--fluid-font-size-1);
+      inline-size: clamp(100px, 30vi, 500px);
+      color: var(--main-color);
+    }
+
+    & label:has(input:focus) span {
+      display: block flow;
+    }
+
+    & button {
+      inline-size: clamp(100px, 30vi, 400px);
     }
   }
 }

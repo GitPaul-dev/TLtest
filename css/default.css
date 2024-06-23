@@ -1,12 +1,14 @@
 @layer default {
 
-  article:not(:first-of-type) {
+  article:not(:first-of-type),
+  footer {
     padding-block: var(--size-5);
   }
 
-  h1 {
+  .main-title {
     font-size: var(--fluid-font-size-4);
     text-align: center;
+    text-shadow: 2px 2px 6px var(--color-3);
   }
 
   h2 {
@@ -27,7 +29,8 @@
     font-size: var(--fluid-font-size-1);
   }
 
-  a {
+  a,
+  button {
     padding: var(--size-1);
     border-radius: var(--border-radius);
     font-size: var(--fluid-font-size-2);
