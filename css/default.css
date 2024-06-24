@@ -56,6 +56,15 @@
     filter: drop-shadow(var(--shadow) var(--color-3));
   }
 
+  input {
+    transition: outline var(--transition-defaults);
+  }
+
+  input:focus-visible {
+    outline: 3px solid var(--color-1);
+    outline-offset: var(--size-0);
+  }
+
   img {
     filter: drop-shadow(var(--shadow) var(--color-0));
   }

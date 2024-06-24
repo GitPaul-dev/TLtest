@@ -221,8 +221,13 @@
     .swiper-button-prev:focus-visible,
     .swiper-button-next:focus-visible,
     .swiper-pagination-bullet:focus-visible {
+      outline: 2px solid var(--color-1);
       outline-offset: 10px;
-      outline-color: var(--color-1);
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-weight: 700;
     }
 
     & img {
@@ -237,11 +242,6 @@
     & blockquote {
       overflow-y: auto;
       scrollbar-width: none;
-    }
-
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-weight: 700;
     }
   }
 
@@ -442,8 +442,7 @@
       position: absolute;
       inset-block-start: var(--size-0);
       inset-inline-end: var(--_input-padding);
-      display: none;
-      color: var(--main-color);
+      color: transparent;
     }
 
     & input {
@@ -451,11 +450,13 @@
       border-radius: var(--border-radius);
       font-size: var(--fluid-font-size-1);
       inline-size: clamp(250px, 40vi, 500px);
-      color: var(--main-color);
+      font-weight: 700;
+      color: var(--color-1);
+      background-color: lch(from var(--main-color) l c h / 0.5);
     }
 
     & label:has(input:focus) span {
-      display: block flow;
+      color: var(--color-1);
     }
 
     & button {
