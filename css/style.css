@@ -127,27 +127,24 @@
     & li {
       display: block flex;
       align-items: center;
+      flex-direction: row-reverse;
       gap: var(--size-2);
     }
 
-    & li:nth-child(odd) {
-      flex-direction: row-reverse;
+    & li:nth-child(even) {
+      flex-direction: row;
 
       & p {
         text-align: end;
       }
     }
 
-    & .img-box {
-      flex-shrink: 0;
-      flex-basis: 40%;
+    & li img {
       border: 2px solid var(--main-color);
       border-radius: 50%;
+      inline-size: clamp(100px, 10vi, 160px);
       background-image: var(--gradient-2);
-    }
-
-    & p {
-      font-size: var(--fluid-font-size-1);
+      filter: drop-shadow(2px 2px 6px var(--color-3));
     }
   }
 
@@ -155,23 +152,29 @@
 
     .composition {
       display: block flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
-      gap: var(--size-4);
+      gap: var(--size-2);
 
       & .product-box {
         position: static;
       }
 
       & ul {
-        grid-template-columns: repeat(auto-fit, minmax(22vi, 100px));
-        justify-content: center;
+        grid-template-columns: unset;
+        grid-auto-flow: column;
         gap: var(--size-2);
-        inline-size: 100%;
+        inline-size: 100vi;
+        overflow-x: auto;
+        scroll-snap-type: inline mandatory;
       }
 
-      & :is(li, li:nth-child(odd)) {
+      & :is(li, li:nth-child(even)) {
         flex-direction: column;
+        padding-block-start: 10px;
+        inline-size: 210px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
 
         & p {
           text-align: center;
@@ -179,9 +182,8 @@
         }
       }
 
-      & .img-box {
-        flex-basis: 0;
-        inline-size: max(20vi, 100px);
+      & li img {
+        inline-size: 100px;
       }
     }
   }
@@ -400,7 +402,7 @@
     @media (prefers-reduced-motion: no-preference) {
 
       & .price span:last-of-type {
-        animation: magnification 1.5s infinite;
+        animation: magnification 2s infinite;
       }
     }
 
@@ -456,12 +458,16 @@
         "sale sale"
         "form form";
 
+      & .sale img {
+        inline-size: clamp(150px, 40vi, 220px);
+      }
+
       & form {
         padding-block: var(--size-6);
       }
 
       & label span {
-        font-size: 1rem;
+        font-size: 0.8rem;
       }
 
       & input {

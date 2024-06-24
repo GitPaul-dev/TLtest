@@ -16,7 +16,7 @@
 
     --gradient-colors:
       oklch(from var(--main-color) l c h / 0.9) -15%,
-      oklch(from var(--color-1) l c h / 0.7);
+      oklch(from var(--color-1) l c h / 0.8);
     --gradient-1:
       linear-gradient(in oklch to left bottom, var(--gradient-colors));
     --gradient-2:
