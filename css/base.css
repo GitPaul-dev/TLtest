@@ -16,7 +16,7 @@
 
     --gradient-colors:
       oklch(from var(--main-color) l c h / 0.9) -15%,
-      oklch(from var(--color-1) l c h / 0.9);
+      oklch(from var(--color-1) l c h / 0.7);
     --gradient-1:
       linear-gradient(in oklch to left bottom, var(--gradient-colors));
     --gradient-2:
@@ -26,7 +26,9 @@
     --gradient-3:
       linear-gradient(in oklch to left top, var(--gradient-colors));
     --gradient-4:
-      linear-gradient(in oklch to right bottom, var(--gradient-colors));
+      linear-gradient(in oklch to top,
+        oklch(from var(--main-color) l c h / 0.9) -15%,
+        oklch(from var(--main-color) l c h / 0.6));
 
     --max-site-width: 160ch;
 

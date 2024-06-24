@@ -397,6 +397,13 @@
       }
     }
 
+    @media (prefers-reduced-motion: no-preference) {
+
+      & .price span:last-of-type {
+        animation: magnification 1.5s infinite;
+      }
+    }
+
     & form {
       grid-area: form;
       place-self: stretch;
@@ -427,7 +434,7 @@
       padding: var(--_input-padding);
       border-radius: var(--border-radius);
       font-size: var(--fluid-font-size-1);
-      inline-size: clamp(100px, 30vi, 500px);
+      inline-size: clamp(250px, 40vi, 500px);
       color: var(--main-color);
     }
 
@@ -436,7 +443,30 @@
     }
 
     & button {
-      inline-size: clamp(100px, 30vi, 400px);
+      inline-size: clamp(200px, 30vi, 400px);
+    }
+  }
+
+  @media (width <=768px) {
+
+    footer {
+      grid-template-areas:
+        "name name"
+        "timer timer"
+        "sale sale"
+        "form form";
+
+      & form {
+        padding-block: var(--size-6);
+      }
+
+      & label span {
+        font-size: 1rem;
+      }
+
+      & input {
+        inline-size: 70vi;
+      }
     }
   }
 }

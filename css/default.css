@@ -1,5 +1,9 @@
 @layer default {
 
+  body {
+    background-image: var(--gradient-4);
+  }
+
   article:not(:first-of-type),
   footer {
     padding-block: var(--size-5);
