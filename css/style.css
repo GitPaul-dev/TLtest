@@ -40,11 +40,11 @@
     & img {
       grid-area: photo;
       place-self: center;
-      inline-size: clamp(200px, 30vi, 490px);
     }
 
     & ul {
       grid-area: descr;
+      align-self: center;
       display: block flex;
       flex-direction: column;
       gap: var(--size-2);
@@ -108,7 +108,7 @@
 
       & img {
         margin-block-end: var(--size-3);
-        inline-size: clamp(150px, 20vi, 250px);
+        inline-size: clamp(150px, 20vi, 220px);
       }
 
       & a {
@@ -120,7 +120,7 @@
       display: block grid;
       grid-template-columns: repeat(2, minmax(10vi, 400px));
       justify-content: space-between;
-      gap: var(--size-6);
+      gap: var(--size-3);
       column-gap: 260px;
     }
 
@@ -194,16 +194,8 @@
     background-image: var(--gradient-3);
 
     & .swiper {
-      padding-block-end: var(--size-4);
+      block-size: 90vb;
       inline-size: clamp(260px, 80vi, 900px);
-    }
-
-    & .swiper-wrapper {
-      padding-block-end: var(--size-4);
-    }
-
-    & .swiper-slide {
-      block-size: auto !important;
     }
 
     & .swiper-slide div {
@@ -213,12 +205,13 @@
       gap: var(--size-2);
       border-radius: var(--border-radius);
       padding: var(--size-3);
+      padding-block-end: var(--size-4);
       block-size: 100%;
-      max-block-size: 100vb;
       background-color: oklch(from var(--main-color) l c h / .4);
     }
 
     & img {
+      flex-shrink: 0;
       border-radius: var(--border-radius);
       block-size: 40%;
       object-fit: cover;
@@ -227,6 +220,7 @@
 
     & blockquote {
       overflow-y: auto;
+      scrollbar-width: none;
     }
 
     .swiper-button-next::after,
@@ -376,6 +370,7 @@
       align-items: center;
       gap: var(--size-2);
       font-weight: 700;
+      text-shadow: 2px 2px 6px var(--color-3);
 
       & span:first-of-type {
         position: relative;
