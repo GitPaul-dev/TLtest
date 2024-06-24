@@ -18,4 +18,42 @@ window.addEventListener('DOMContentLoaded', () => {
     centeredSlides: true,
   });
 
+  function createTimer() {
+    let min = 29;
+    let sec = 59;
+    const timer = document.getElementById('timer');
+    const orderForm = document.getElementById('order-form');
+    timer.textContent = `Hurry Up! Sale ends in ${min}:${sec}!`;
+
+    let counter = setInterval(() => {
+      sec = sec - 1;
+
+      if (sec === 0) {
+        min = min - 1;
+        sec = 59;
+      }
+
+      timer.textContent = `Hurry Up! Sale ends in ${min}:${sec}!`;
+
+      if (sec < 10) {
+        timer.textContent = `Hurry Up! Sale ends in ${min}:0${sec}!`;
+      }
+
+      if (min < 10) {
+        timer.textContent = `Hurry Up! Sale ends in 0${min}:${sec}!`;
+      }
+
+      if (sec < 10 && min < 10) {
+        timer.textContent = `Hurry Up! Sale ends in 0${min}:0${sec}!`;
+      }
+
+      orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        clearInterval(counter);
+      });
+    }, 1000);
+  }
+
+  createTimer();
 });
