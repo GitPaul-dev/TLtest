@@ -53,7 +53,7 @@
     li {
       padding: var(--size-2);
       border-radius: var(--border-radius);
-      background-color: oklch(from var(--main-color) l c h / .5);
+      background-color: var(--background);
     }
 
     & a {
@@ -209,7 +209,7 @@
       padding: var(--size-3);
       padding-block-end: var(--size-4);
       block-size: 100%;
-      background-color: oklch(from var(--main-color) l c h / .4);
+      background-color: var(--background)
     }
 
     .swiper-button-prev,
@@ -258,7 +258,7 @@
 
     & :where(.spec, ul) {
       border-radius: var(--border-radius);
-      background-color: oklch(from var(--main-color) l c h / .4);
+      background-color: var(--background)
     }
 
     & img {
@@ -430,7 +430,7 @@
       gap: var(--size-3);
       padding: var(--size-3);
       border-radius: var(--border-radius);
-      background-color: oklch(from var(--main-color) l c h / .4);
+      background-color: var(--background)
     }
 
     & label {

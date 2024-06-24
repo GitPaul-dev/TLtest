@@ -41,6 +41,8 @@
         oklch(from var(--main-color) l c h / 0.9) -15%,
         oklch(from var(--main-color) l c h / 0.6));
 
+    --background: oklch(from var(--main-color) l c h / .4);
+
     --transition-defaults: 0.3s ease-in-out;
     --shadow: 2px 2px 6px;
   }
