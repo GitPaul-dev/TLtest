@@ -1,0 +1,493 @@
+@layer style {
+
+  :root {
+    --website-padding-inline: var(--size-2);
+  }
+
+  body {
+    font-family: system-ui, sans-serif;
+    font-size: 105%;
+    line-height: 1.5;
+  }
+
+  .promo-1 {
+    container: promo-1 / inline-size;
+    position: relative;
+    background-color: var(--main-color);
+    overflow-y: clip;
+  }
+
+  .promo-1 div {
+    position: relative;
+    z-index: 10;
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "heading heading"
+      "photo descr"
+      "photo promo-1-link";
+    gap: var(--size-2);
+    padding-inline: var(--website-padding-inline);
+    padding-block: var(--size-4);
+
+    & .main-title {
+      grid-area: heading;
+      place-self: center;
+      color: var(--color-1);
+    }
+
+    & img {
+      grid-area: photo;
+      place-self: center;
+    }
+
+    & ul {
+      grid-area: descr;
+      align-self: center;
+      display: block flex;
+      flex-direction: column;
+      gap: var(--size-2);
+    }
+
+    li {
+      padding: var(--size-2);
+      border-radius: var(--border-radius);
+      background-color: var(--background);
+    }
+
+    & a {
+      grid-area: promo-1-link;
+      place-self: center;
+      inline-size: clamp(100px, 30vi, 400px);
+    }
+
+  }
+
+  .promo-1 video {
+    position: absolute;
+    inset-block-start: 0;
+    inline-size: 100vi;
+    block-size: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+
+  @container promo-1 (inline-size <=768px) {
+
+    .promo-1 div {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "heading"
+        "photo"
+        "promo-1-link"
+        "descr";
+    }
+
+    .main-title {
+      font-size: var(--fluid-font-size-3);
+    }
+
+    .promo-1 div a {
+      font-size: var(--fluid-font-size-1);
+    }
+  }
+
+  .composition {
+    position: relative;
+    background-image: var(--gradient-1);
+
+    & .product-box {
+      position: absolute;
+      inset: 0;
+      display: block grid;
+      place-items: center;
+      margin: auto;
+      inline-size: fit-content;
+      block-size: fit-content;
+
+      & img {
+        margin-block-end: var(--size-3);
+        inline-size: clamp(150px, 20vi, 220px);
+      }
+
+      & a {
+        inline-size: clamp(100px, 20vi, 200px);
+      }
+    }
+
+    & ul {
+      display: block grid;
+      grid-template-columns: repeat(2, minmax(10vi, 400px));
+      justify-content: space-between;
+      gap: var(--size-3);
+      column-gap: 260px;
+    }
+
+    & li {
+      display: block flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: var(--size-2);
+    }
+
+    & li:nth-child(even) {
+      flex-direction: row;
+
+      & p {
+        text-align: end;
+      }
+    }
+
+    & li img {
+      border: 2px solid var(--main-color);
+      border-radius: 50%;
+      inline-size: clamp(100px, 10vi, 160px);
+      background-image: var(--gradient-2);
+      filter: drop-shadow(var(--shadow) var(--color-3));
+    }
+  }
+
+  @media (width <=768px) {
+
+    .composition {
+      display: block flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--size-2);
+
+      & .product-box {
+        position: static;
+      }
+
+      & ul {
+        grid-template-columns: unset;
+        grid-auto-flow: column;
+        gap: var(--size-2);
+        inline-size: 100vi;
+        overflow-x: auto;
+        scroll-snap-type: inline mandatory;
+      }
+
+      & :is(li, li:nth-child(even)) {
+        flex-direction: column;
+        padding-block-start: 10px;
+        inline-size: 210px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+
+        & p {
+          text-align: center;
+          text-wrap: balance;
+        }
+      }
+
+      & li img {
+        inline-size: 100px;
+      }
+    }
+  }
+
+  .feedback {
+    --swiper-navigation-color: var(--color-0);
+    --swiper-navigation-top-offset: clamp(150px, 24vi, 230px);
+    --swiper-pagination-color: var(--color-0);
+    --swiper-pagination-bullet-size: clamp(15px, 3vi, 20px);
+    background-image: var(--gradient-3);
+
+    & .swiper {
+      block-size: 90vb;
+      inline-size: clamp(260px, 80vi, 900px);
+    }
+
+    & .swiper-slide div {
+      display: block flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--size-2);
+      border-radius: var(--border-radius);
+      padding: var(--size-3);
+      padding-block-end: var(--size-4);
+      block-size: 100%;
+      background-color: var(--background)
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-pagination-bullet {
+      transition: outline var(--transition-defaults);
+    }
+
+    .swiper-button-prev:focus-visible,
+    .swiper-button-next:focus-visible,
+    .swiper-pagination-bullet:focus-visible {
+      outline: 2px solid var(--color-1);
+      outline-offset: 10px;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-weight: 700;
+    }
+
+    & img {
+      flex-shrink: 0;
+      border-radius: var(--border-radius);
+      block-size: 40%;
+      object-fit: cover;
+      object-position: top;
+      filter: drop-shadow(var(--shadow) var(--color-3));
+    }
+
+    & blockquote {
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+  }
+
+  .promo-2 {
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "man spec"
+      "feature feature"
+      "promo-2-link promo-2-link";
+    column-gap: var(--size-2);
+    background-image: var(--gradient-1);
+
+    & :where(.spec, ul) {
+      border-radius: var(--border-radius);
+      background-color: var(--background)
+    }
+
+    & img {
+      grid-area: man;
+      place-self: center;
+    }
+
+    & .spec {
+      grid-area: spec;
+      display: block flex;
+      align-items: center;
+      margin-block: var(--size-2);
+      padding: var(--size-3);
+      font-weight: 500;
+    }
+
+    & ul {
+      grid-area: feature;
+      display: block grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      gap: var(--size-2);
+      margin-block-end: var(--size-2);
+    }
+
+    & li {
+      padding: var(--size-2);
+    }
+
+    & p {
+      font-size: var(--fluid-font-size-1);
+      text-align: center;
+    }
+
+    & a {
+      grid-area: promo-2-link;
+      justify-self: center;
+      inline-size: clamp(100px, 30vi, 400px);
+    }
+  }
+
+  @media (width <=768px) {
+
+    .promo-2 {
+      grid-template-areas:
+        "man feature"
+        "spec feature"
+        "promo-2-link promo-2-link";
+
+      & .spec {
+        margin-block-start: 0;
+      }
+
+      & ul {
+        grid-auto-flow: row;
+      }
+
+      & li {
+        place-self: center;
+      }
+    }
+  }
+
+  @media (width <=576px) {
+
+    .promo-2 {
+      grid-template-areas:
+        "man"
+        "spec"
+        "promo-2-link"
+        "feature";
+      grid-template-columns: 1fr;
+
+      & ul {
+        grid-auto-flow: column;
+        margin-block-end: 0;
+        border-inline: var(--size-1) solid transparent;
+        overflow-x: auto;
+        scroll-snap-type: inline mandatory;
+      }
+
+      & li {
+        inline-size: 70vi;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+      }
+
+      & img {
+        max-inline-size: 260px;
+      }
+
+      & a {
+        margin-block-end: var(--size-2);
+      }
+    }
+  }
+
+  footer {
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "name name"
+      "timer timer"
+      "form sale";
+    gap: var(--size-2);
+    place-items: center;
+    background-image: var(--gradient-3);
+
+    & .main-title {
+      grid-area: name;
+    }
+
+    & .timer {
+      grid-area: timer;
+      font-size: var(--fluid-font-size-2);
+      font-weight: 700;
+      text-shadow: var(--shadow) var(--color-0);
+      color: var(--main-color);
+    }
+
+    & .sale {
+      grid-area: sale;
+    }
+
+    & .price {
+      display: block flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--size-2);
+      font-weight: 700;
+      text-shadow: var(--shadow) var(--color-3);
+
+      & span:first-of-type {
+        position: relative;
+      }
+
+      & span:first-of-type::after {
+        content: "";
+        position: absolute;
+        inset-inline-start: -10%;
+        inset-block: 0;
+        margin-block: auto;
+        block-size: 4px;
+        inline-size: 120%;
+        background-color: var(--main-color);
+        opacity: 0.9;
+      }
+
+      & span:last-of-type {
+        font-size: var(--fluid-font-size-3);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+
+      & .price span:last-of-type {
+        animation: magnification 2s infinite;
+      }
+    }
+
+    & form {
+      grid-area: form;
+      place-self: stretch;
+      display: block flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--size-3);
+      padding: var(--size-3);
+      border-radius: var(--border-radius);
+      background-color: var(--background)
+    }
+
+    & label {
+      --_input-padding: var(--size-2);
+      position: relative;
+    }
+
+    & label span {
+      position: absolute;
+      inset-block-start: var(--size-0);
+      inset-inline-end: var(--_input-padding);
+      color: transparent;
+    }
+
+    & input {
+      padding: var(--_input-padding);
+      border-radius: var(--border-radius);
+      font-size: var(--fluid-font-size-1);
+      inline-size: clamp(250px, 40vi, 500px);
+      font-weight: 700;
+      color: var(--color-1);
+      background-color: lch(from var(--main-color) l c h / 0.5);
+    }
+
+    & label:has(input:focus) span {
+      color: var(--color-1);
+    }
+
+    & button {
+      inline-size: clamp(200px, 30vi, 400px);
+    }
+  }
+
+  @media (width <=768px) {
+
+    footer {
+      grid-template-areas:
+        "name name"
+        "timer timer"
+        "sale sale"
+        "form form";
+
+      & .sale img {
+        inline-size: clamp(150px, 40vi, 220px);
+      }
+
+      & form {
+        padding-block: var(--size-6);
+      }
+
+      & label span {
+        font-size: 0.8rem;
+      }
+
+      & input {
+        inline-size: 70vi;
+      }
+    }
+  }
+}

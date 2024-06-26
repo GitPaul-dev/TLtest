@@ -1,0 +1,71 @@
+@layer default {
+
+  body {
+    background-image: var(--gradient-4);
+  }
+
+  article:not(:first-of-type),
+  footer {
+    padding-block: var(--size-5);
+  }
+
+  .main-title {
+    font-size: var(--fluid-font-size-4);
+    text-align: center;
+    text-shadow: var(--shadow) var(--color-3);
+  }
+
+  h2 {
+    font-size: var(--fluid-font-size-2);
+    color: var(--color-0);
+  }
+
+  p,
+  blockquote {
+    font-size: var(--fluid-font-size-1);
+    color: var(--color-0)
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
+  a,
+  button {
+    padding: var(--size-1);
+    border-radius: var(--border-radius);
+    font-size: var(--fluid-font-size-2);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-1);
+    background-color: var(--main-color);
+    transition:
+      color var(--transition-defaults),
+      background-color var(--transition-defaults),
+      filter var(--transition-defaults);
+  }
+
+  a:hover,
+  a:focus,
+  button:hover,
+  button:focus {
+    outline: none;
+    color: var(--main-color);
+    background-color: var(--color-1);
+    filter: drop-shadow(var(--shadow) var(--color-3));
+  }
+
+  input {
+    transition: outline var(--transition-defaults);
+  }
+
+  input:focus-visible {
+    outline: 3px solid var(--color-1);
+    outline-offset: var(--size-0);
+  }
+
+  img {
+    filter: drop-shadow(var(--shadow) var(--color-0));
+  }
+}
